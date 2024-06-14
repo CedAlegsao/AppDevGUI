@@ -1,6 +1,6 @@
 import tkinter as tk
 from create_account import CreateAccount
-
+from login import Login
 from displaydata import DisplayAllData
 
 buttons = [
@@ -17,6 +17,8 @@ buttons = [
 def button_command(action):
     if action == "CreateAccount":
         CreateAccount(root)
+    elif action == "LoginAccount":
+        Login(root)
     elif action == "DisplayAllAccounts":
         DisplayAllData(root)
 
