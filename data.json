@@ -1,0 +1,13 @@
+{
+    "accounts": [
+        {
+            "accNum": "242511",
+            "accName": "test1",
+            "accountType": "Savings",
+            "gender": "Male",
+            "address": "test1",
+            "balance": 0
+        }
+    ],
+    "transactions": []
+}
