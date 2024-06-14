@@ -2,16 +2,21 @@ import tkinter as tk
 from create_account import CreateAccount
 from login import Login
 from displaydata import DisplayAllData
+from transactionhistory import TransactionHistory
+from showbestaccount import ShowBestAccount
+from showVIP import ShowVIP
+from romoveaccount import RemoveAccount
+from updateAccount import UpdateAccount
 
 buttons = [
     ("Create Account", "CreateAccount"),
     ("Login Account", "LoginAccount"),
     ("Display All Account", "DisplayAllAccounts"),
-    ("Transaction History", ""),
-    ("Show Best Account", ""),
-    ("Show VIP", ""),
-    ("Remove Account", ""),
-    ("Update Account", "")
+    ("Transaction History", "TransactionHistory"),
+    ("Show Best Account", "ShowBestAccount"),
+    ("Show VIP", "ShowVIP"),
+    ("Remove Account", "RemoveAccount"),
+    ("Update Account", "UpdateAccount")
 ]
 
 def button_command(action):
@@ -21,6 +26,16 @@ def button_command(action):
         Login(root)
     elif action == "DisplayAllAccounts":
         DisplayAllData(root)
+    elif action == "TransactionHistory":
+        TransactionHistory(root)
+    elif action == "ShowBestAccount":
+        ShowBestAccount(root)
+    elif action == "ShowVIP":
+        ShowVIP(root)
+    elif action == "RemoveAccount":
+        RemoveAccount(root)
+    elif action == "UpdateAccount":
+        UpdateAccount(root)
 
 root = tk.Tk()
 root.title("Final Python Project-python")
