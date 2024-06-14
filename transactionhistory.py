@@ -11,7 +11,7 @@ class TransactionHistory:
         # Create a Treeview widget to display transaction data
         self.tree = ttk.Treeview(self.window, columns=("Title", "Created By", "Amount", "Reference", "Balance", "Date"))
         self.tree.heading("#0", text="ID")
-        self.tree.column("#0", width=20)
+        self.tree.column("#0", width=50)
         self.tree.heading("Title", text="Title")
         self.tree.column("Title", width=100)
         self.tree.heading("Created By", text="Created By")
