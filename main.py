@@ -12,7 +12,7 @@ def checkIsAdmin(account):
     
     if isAdmin:
         messagebox.showinfo("Message", "Logged as Admin.")
-        subprocess.Popen(['python', 'adminhome.py'])
+        subprocess.Popen(['python', 'adminhome.py', str(accNum)])
     else:
         messagebox.showinfo("Message", "Successfully Logged in to you account.")
         subprocess.Popen(['python', 'userMainMenu.py', str(accNum)])
@@ -25,21 +25,25 @@ def validated(acc_num):
         with open('data.json', 'r') as f:
             data = json.load(f)
     except FileNotFoundError:
-        print("file not found!")
+        messagebox.showerror("File not Found", "Error: Database file not found!")
+        return
 
     account_found = False
 
     for account in data['accounts']:
-        if account['accNum'] == acc_num:
+        if account['accNum'] == str(acc_num):
             account_found = True
+            account_data = account
 
     if not account_found:
         messagebox.showerror("Account number not found", f"Account number {acc_num} is not registered, please contact the admin to register new account.")
     else:
-        checkIsAdmin(account)
+        checkIsAdmin(account_data)
 
 def login():
+    
     accNum = input_acc_num.get()
+
     if accNum.isdigit():
         if len(accNum) != 6:
             messagebox.showerror("Invalid Account Number", "The account number must be 6 digit.")
@@ -47,7 +51,6 @@ def login():
             validated(acc_num=accNum)
     else:
         messagebox.showerror("Invalid account number.", "The account number must be 6 digit integer")
-
 
 
 label = ttk.Label(text="Account Number")

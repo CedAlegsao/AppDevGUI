@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Button
+from tkinter import ttk, messagebox, Button
 from create_account import CreateAccount
 from login import Login
 from displaydata import DisplayAllData
@@ -8,6 +8,17 @@ from showbestaccount import ShowBestAccount
 from showVIP import ShowVIP
 from romoveaccount import RemoveAccount
 from updateAccount import UpdateAccount
+
+import sys
+
+if len(sys.argv) > 1:
+    accNum = sys.argv[1]
+else:
+    messagebox.showerror("Error", "Invalid Access to this page, Please loggin properly.")
+    sys.exit(1)
+    
+root = tk.Tk()
+root.title("Main Menu")
 
 # Define buttons with their text and corresponding action
 buttons = [
@@ -24,10 +35,8 @@ buttons = [
 def button_command(action_class):
     action_class(root)
 
-root = tk.Tk()
-root.title("Main Menu")
 
-# Calculate screen width and height for centering window
+# get screen width and height for centering window
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
@@ -39,14 +48,12 @@ y_position = int((screen_height / 2) - (window_height / 2))
 
 root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
 
-# Title label at the top
 title_label = tk.Label(root, text="Main Menu", font=("Helvetica", 20))
 title_label.grid(row=0, column=0, columnspan=2, pady=20)
 
 button_width = 20
 button_height = 1
 
-# Create buttons in a 4x2 grid layout
 for i, (btn_text, action_class) in enumerate(buttons):
     button = Button(root, text=btn_text, command=lambda ac=action_class: button_command(ac),
                     width=button_width, height=button_height)

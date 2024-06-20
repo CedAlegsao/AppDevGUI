@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import math
 import random
 import json
@@ -43,16 +43,12 @@ class CreateAccount:
         self.entry_address = ttk.Entry(self.window, width=30)
         self.entry_address.grid(row=4, column=1, padx=5, pady=5)
 
-        # Message
-        self.message = tk.Text(self.window, wrap="word", height=3, width=40)
-        self.message.grid(row=5, column=0, columnspan=2, pady=10, padx=10)
-
         # Create Button
         create_button = ttk.Button(self.window, text="Create", command=self.create_account)
-        create_button.grid(row=6, column=0)
+        create_button.grid(row=5, column=0)
 
         btn_back_home = ttk.Button(self.window, text='Cancel', command=self.cancel)
-        btn_back_home.grid(row=6, column=1, pady=10, padx=10)
+        btn_back_home.grid(row=5, column=1, pady=10, padx=10)
 
 
     def create_account(self):
@@ -61,17 +57,14 @@ class CreateAccount:
         acc_type = self.dropdown_account_type.get()
         gender = self.dropdown_gender.get()
         address = self.entry_address.get()
-        balance = 0 # setting the defaul value of balance
+        balance = 0
 
-        # generate user id using random and math
         digits = [i for i in range(0,10)]
-        # generate an account number.
         accNum = ""
         for i in range(6):
             index = math.floor(random.random()*10)
             accNum += str(digits[index])
         
-         # Construct account object
         account = {
             'accNum': accNum,
             'accName':acc_name,
@@ -82,33 +75,23 @@ class CreateAccount:
             'isAdmin': False
         }
 
-        # Load existing data from file
         try:
             with open('data.json', 'r') as f:
                 data = json.load(f)
         except FileNotFoundError:
-            # If the file doesn't exist, initialize with empty lists
             data = {"accounts": [], "transactions": []}
         
-        # Check if the generated account number already exists
         if any(account['accNum'] == acc['accNum'] for acc in data['accounts']):
-            self.message.delete(1.0, tk.END)
-            self.message.insert(tk.END, "Error: Account number already exists, please try again.")
+            messagebox.showerror("Error", "Error: Account number already exists, please try again.")
             return
 
-        # Append new account to the accounts list
         data["accounts"].append(account)
-        # Write updated data back to file
+
         with open('data.json', 'w') as f:
             json.dump(data, f, indent=4)
 
-        # Display success message
-        self.message.delete(1.0, tk.END)
-        self.message.insert(tk.END, "Account created successfully!")
-
-         # Schedule window destruction after 3000 milliseconds (3 seconds)
-        self.window.after(2000, self.window.destroy)
-
+        messagebox.showinfo("Message", "Account created successfully!")
+        self.window.destroy()
 
     def cancel(self):
         self.window.destroy()
