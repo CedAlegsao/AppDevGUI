@@ -79,6 +79,7 @@ class CreateAccount:
             'gender':gender,
             'address':address,
             'balance': balance,
+            'isAdmin': False
         }
 
         # Load existing data from file

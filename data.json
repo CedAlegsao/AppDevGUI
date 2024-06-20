@@ -1,158 +1,23 @@
 {
     "accounts": [
         {
-            "accNum": "014994",
+            "accNum": "000001",
+            "accName": "admin",
+            "accountType": "admin",
+            "gender": "Male",
+            "address": "admin",
+            "balance": 0,
+            "isAdmin": true
+        },
+        {
+            "accNum": "893675",
             "accName": "test1",
             "accountType": "Savings",
-            "gender": "Male",
+            "gender": "Female",
             "address": "test1",
-            "balance": 1009000.0
-        },
-        {
-            "accNum": "495019",
-            "accName": "test2",
-            "accountType": "Savings",
-            "gender": "Male",
-            "address": "test2",
-            "balance": 50000.0
-        },
-        {
-            "accNum": "688308",
-            "accName": "test3",
-            "accountType": "Savings",
-            "gender": "Male",
-            "address": "test3",
-            "balance": 40000.0
-        },
-        {
-            "accNum": "901173",
-            "accName": "test",
-            "accountType": "Savings",
-            "gender": "Male",
-            "address": "test",
-            "balance": 5002500.0
-        },
-        {
-            "accNum": "456466",
-            "accName": "test6",
-            "accountType": "Savings",
-            "gender": "Male",
-            "address": "123",
-            "balance": 2000000.0
-        },
-        {
-            "accNum": "440310",
-            "accName": "test7",
-            "accountType": "Savings",
-            "gender": "Male",
-            "address": "test7",
-            "balance": 500000.0
-        },
-        {
-            "accNum": "038871",
-            "accName": "test8",
-            "accountType": "Checking",
-            "gender": "Male",
-            "address": "test8",
-            "balance": 150000.0
+            "balance": 0,
+            "isAdmin": false
         }
     ],
-    "transactions": [
-        {
-            "title": "Deposit",
-            "Created_By": "014994",
-            "Transaction_Amount": 10000.0,
-            "Transaction_Reference": "742104",
-            "balance": 10000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Transfer to 495019",
-            "Created_By": "014994",
-            "Transaction_Amount": 1000.0,
-            "Transaction_Reference": "072849",
-            "balance": 9000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Withdraw",
-            "Created_By": "495019",
-            "Transaction_Amount": 1000.0,
-            "Transaction_Reference": "487384",
-            "balance": 0.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "495019",
-            "Transaction_Amount": 50000.0,
-            "Transaction_Reference": "779576",
-            "balance": 50000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "688308",
-            "Transaction_Amount": 40000.0,
-            "Transaction_Reference": "248884",
-            "balance": 40000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "988433",
-            "Transaction_Amount": 30000.0,
-            "Transaction_Reference": "227288",
-            "balance": 30000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "901173",
-            "Transaction_Amount": 2500.0,
-            "Transaction_Reference": "857161",
-            "balance": 2500.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "901173",
-            "Transaction_Amount": 5000000.0,
-            "Transaction_Reference": "589277",
-            "balance": 5002500.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "014994",
-            "Transaction_Amount": 1000000.0,
-            "Transaction_Reference": "575878",
-            "balance": 1009000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "456466",
-            "Transaction_Amount": 2000000.0,
-            "Transaction_Reference": "091326",
-            "balance": 2000000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "440310",
-            "Transaction_Amount": 500000.0,
-            "Transaction_Reference": "267306",
-            "balance": 500000.0,
-            "updated_at": "Friday, June 14, 2024"
-        },
-        {
-            "title": "Deposit",
-            "Created_By": "038871",
-            "Transaction_Amount": 150000.0,
-            "Transaction_Reference": "638802",
-            "balance": 150000.0,
-            "updated_at": "Friday, June 14, 2024"
-        }
-    ]
+    "transactions": []
 }
