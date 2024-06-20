@@ -3,6 +3,11 @@ from tkinter import ttk, messagebox
 import json
 import sys
 
+from withdraw import Withdraw
+from deposit import Deposit
+from transfer_fund import TransferFund
+from mytransaction import MyTransaction
+
 # Read account number from command-line argument
 if len(sys.argv) > 1:
     accNum = sys.argv[1]
@@ -29,21 +34,42 @@ def accData(accNum):
     messagebox.showerror("Account Not Found", f"Account number {accNum} not found in database. Try contacting the admin for you to register your own account")
     sys.exit(1)
 
+def Logout():
+    root.destroy()
+
+def handleCommands(cmd):
+    if cmd == Logout:
+        Logout()
+    else:
+        cmd(root)
+
 root = tk.Tk()
 root.title("User Home")
 
 label = ttk.Label(root, text="User Main Menu")
-label.pack(padx=20, pady=20)
+label.grid(row=0, column=0, columnspan=2, padx=20, pady=20)
 
 # Fetch account data when the app starts
 account_details = accData(accNum)
 if account_details:
     text_display = tk.Text(root, height=10, width=40)
     text_display.insert(tk.END, account_details)
-    text_display.pack(pady=10)
+    text_display.grid(row=1, column=0, columnspan=2, pady=10)
 
-# Exit button
-btn_exit = ttk.Button(root, text="Logout", command=root.destroy)
-btn_exit.pack(pady=10)
+# Buttons layout
+buttons = [
+    ('Deposit Amount', Deposit),
+    ('Withdraw Amount', Withdraw),
+    ('Transfer Fund', TransferFund),
+    ('My Transaction', MyTransaction),
+    ('Logout', Logout)
+]
+
+# Create buttons in a 2x2 grid layout
+for i, (text, command) in enumerate(buttons):
+    row = i // 2 + 2
+    col = i % 2
+    btn = ttk.Button(root, text=text, command=lambda cmd=command: handleCommands(cmd))
+    btn.grid(row=row, column=col, padx=10, pady=10)
 
 root.mainloop()
