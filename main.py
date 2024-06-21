@@ -16,7 +16,6 @@ def checkIsAdmin(account):
     else:
         messagebox.showinfo("Message", "Successfully Logged in to you account.")
         subprocess.Popen(['python', 'userMainMenu.py', str(accNum)])
-
     root.destroy()
 
 def validated(acc_num):
@@ -34,7 +33,7 @@ def validated(acc_num):
         if account['accNum'] == str(acc_num):
             account_found = True
             account_data = account
-            
+
     if not account_found:
         messagebox.showerror("Account number not found", f"Account number {acc_num} is not registered, please contact the admin to register new account.")
     else:

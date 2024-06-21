@@ -57,24 +57,21 @@ root.title("User Home")
 label = ttk.Label(root, text="User Main Menu")
 label.grid(row=0, column=0, columnspan=2, padx=20, pady=20)
 
-# Fetch account data when the app starts
 account_details = accData(accNum)
 text_display = tk.Text(root, height=10, width=40)
 if account_details:
     text_display.insert(tk.END, account_details)
 text_display.grid(row=1, column=0, columnspan=2, pady=10)
 
-# Buttons layout
 buttons = [
     ('Deposit Amount', Deposit),
     ('Withdraw Amount', Withdraw),
     ('Transfer Fund', TransferFund),
     ('My Transaction', MyTransaction),
     ('Logout', Logout),
-    ('Refresh', refreshData)  # Add the refresh button
+    ('Refresh', refreshData)
 ]
 
-# Create buttons in a 2x3 grid layout (add extra row for Refresh button)
 for i, (text, command) in enumerate(buttons):
     row = i // 2 + 2
     col = i % 2
