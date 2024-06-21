@@ -37,11 +37,19 @@ def accData(accNum):
 def Logout():
     root.destroy()
 
-def handleCommands(cmd):
+def handleCommands(cmd, accNum):
     if cmd == Logout:
         Logout()
+    elif cmd == refreshData:
+        refreshData()
     else:
-        cmd(root)
+        cmd(root, accNum)
+
+def refreshData():
+    account_details = accData(accNum)
+    if account_details:
+        text_display.delete(1.0, tk.END)  # Clear the current content
+        text_display.insert(tk.END, account_details)  # Insert the refreshed content
 
 root = tk.Tk()
 root.title("User Home")
@@ -51,10 +59,10 @@ label.grid(row=0, column=0, columnspan=2, padx=20, pady=20)
 
 # Fetch account data when the app starts
 account_details = accData(accNum)
+text_display = tk.Text(root, height=10, width=40)
 if account_details:
-    text_display = tk.Text(root, height=10, width=40)
     text_display.insert(tk.END, account_details)
-    text_display.grid(row=1, column=0, columnspan=2, pady=10)
+text_display.grid(row=1, column=0, columnspan=2, pady=10)
 
 # Buttons layout
 buttons = [
@@ -62,14 +70,15 @@ buttons = [
     ('Withdraw Amount', Withdraw),
     ('Transfer Fund', TransferFund),
     ('My Transaction', MyTransaction),
-    ('Logout', Logout)
+    ('Logout', Logout),
+    ('Refresh', refreshData)  # Add the refresh button
 ]
 
-# Create buttons in a 2x2 grid layout
+# Create buttons in a 2x3 grid layout (add extra row for Refresh button)
 for i, (text, command) in enumerate(buttons):
     row = i // 2 + 2
     col = i % 2
-    btn = ttk.Button(root, text=text, command=lambda cmd=command: handleCommands(cmd))
+    btn = ttk.Button(root, text=text, command=lambda cmd=command: handleCommands(cmd, accNum) if cmd != refreshData else cmd())
     btn.grid(row=row, column=col, padx=10, pady=10)
 
 root.mainloop()

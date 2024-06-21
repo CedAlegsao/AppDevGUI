@@ -33,9 +33,42 @@
             "accountType": "Savings",
             "gender": "Male",
             "address": "asdf",
-            "balance": 0,
+            "balance": 120456.0,
             "isAdmin": false
         }
     ],
-    "transactions": []
+    "transactions": [
+        {
+            "accNum": "408109",
+            "title": "Deposit",
+            "amount": 123456.0,
+            "balance": 135801.0,
+            "reference": "761687",
+            "date": "Friday, June 21, 2024"
+        },
+        {
+            "accNum": "408109",
+            "title": "Withdraw",
+            "amount": 12345.0,
+            "balance": 123456.0,
+            "reference": "831449",
+            "date": "Friday, June 21, 2024"
+        },
+        {
+            "accNum": "408109",
+            "title": "Deposit",
+            "amount": 1000.0,
+            "balance": 124456.0,
+            "reference": "165788",
+            "date": "Friday, June 21, 2024"
+        },
+        {
+            "accNum": "408109",
+            "title": "Withdraw",
+            "amount": 4000.0,
+            "balance": 120456.0,
+            "reference": "584165",
+            "date": "Friday, June 21, 2024"
+        }
+    ]
 }

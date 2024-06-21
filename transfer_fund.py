@@ -1,7 +1,8 @@
 import tkinter as tk
 
 class TransferFund:
-    def __init__(self, parent):
+    def __init__(self, parent, accNum):
+        self.accNum = accNum
         self.parent = parent
         self.window = tk.Toplevel(parent)
         self.window.title("TransferFund")
