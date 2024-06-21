@@ -24,7 +24,7 @@
             "accountType": "Savings",
             "gender": "Male",
             "address": "ad",
-            "balance": 0,
+            "balance": 16000.0,
             "isAdmin": false
         },
         {
@@ -33,7 +33,7 @@
             "accountType": "Savings",
             "gender": "Male",
             "address": "asdf",
-            "balance": 120456.0,
+            "balance": 119456.0,
             "isAdmin": false
         }
     ],
@@ -68,6 +68,30 @@
             "amount": 4000.0,
             "balance": 120456.0,
             "reference": "584165",
+            "date": "Friday, June 21, 2024"
+        },
+        {
+            "accNum": "408109",
+            "title": "Tranfer to 448802",
+            "amount": 5000.0,
+            "balance": 110456.0,
+            "reference": "786204",
+            "date": "Friday, June 21, 2024"
+        },
+        {
+            "accNum": "448802",
+            "title": "Tranfer to 408109",
+            "amount": 9000.0,
+            "balance": 1000.0,
+            "reference": "173789",
+            "date": "Friday, June 21, 2024"
+        },
+        {
+            "accNum": "448802",
+            "title": "Deposit",
+            "amount": 15000.0,
+            "balance": 16000.0,
+            "reference": "407866",
             "date": "Friday, June 21, 2024"
         }
     ]
